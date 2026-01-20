@@ -23,8 +23,7 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 ### macOS (Homebrew)
 
 ```bash
-brew tap brookcs3/tap
-brew install m3u8-mcp
+brew install brookcs3/tap/m3u8-mcp
 ```
 
 ### macOS (Manual)
