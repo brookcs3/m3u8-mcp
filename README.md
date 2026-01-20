@@ -12,12 +12,27 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 ## Requirements
 
 - **FFmpeg** - `brew install ffmpeg`
-- **Rust** - `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
 - **Chrome Dev Tools MCP** (to find m3u8 URLs on web pages) - [Chrome Dev Tools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 
 ---
 
 ## Install
+
+### Option 1: Download Binary (macOS)
+
+1. Go to [Releases](https://github.com/brookcs3/m3u8-mcp/releases)
+2. Download `m3u8-mcp`
+3. Open Terminal and run:
+
+```bash
+cd ~/Downloads
+chmod +x m3u8-mcp
+sudo mv m3u8-mcp /usr/local/bin/
+```
+
+### Option 2: Build from Source
+
+Requires [Rust](https://rustup.rs/).
 
 ```bash
 git clone https://github.com/brookcs3/m3u8-mcp.git
