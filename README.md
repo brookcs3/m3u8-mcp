@@ -18,16 +18,13 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 
 ## Install
 
-### Option 1: Download Binary (macOS)
-
-1. Go to [Releases](https://github.com/brookcs3/m3u8-mcp/releases)
-2. Download `m3u8-mcp`
-3. Open Terminal and run:
+### Option 1: Pre-built Binary (macOS)
 
 ```bash
-cd ~/Downloads
+git clone https://github.com/brookcs3/m3u8-mcp.git
+cd m3u8-mcp
 chmod +x m3u8-mcp
-sudo mv m3u8-mcp /usr/local/bin/
+sudo cp m3u8-mcp /usr/local/bin/
 ```
 
 ### Option 2: Build from Source
