@@ -50,20 +50,28 @@ claude mcp add m3u8 --scope user -- /usr/local/bin/m3u8-mcp --stdio
 
 ### Claude Desktop
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+1. Open the config file:
+
+**macOS:**
+```bash
+open ~/Library/Application\ Support/Claude/claude_desktop_config.json
+```
+
+**Windows:**
+```
+%APPDATA%\Claude\claude_desktop_config.json
+```
+
+2. Add this inside the `"mcpServers"` section:
 
 ```json
-{
-  "mcpServers": {
-    "m3u8": {
-      "command": "/usr/local/bin/m3u8-mcp",
-      "args": ["--stdio"]
-    }
-  }
+"m3u8": {
+  "command": "/usr/local/bin/m3u8-mcp",
+  "args": ["--stdio"]
 }
 ```
 
-Restart Claude Desktop after saving.
+3. Restart Claude Desktop
 
 ---
 
