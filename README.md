@@ -14,28 +14,26 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 - **FFmpeg**
   - macOS: `brew install ffmpeg`
   - Windows: `choco install ffmpeg` or download from [ffmpeg.org](https://ffmpeg.org/download.html)
-- **Chrome Dev Tools MCP** (to find m3u8 URLs on web pages) - [Chrome Dev Tools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+- **Chrome Dev Tools MCP** (to find m3u8 URLs on web pages) - [Chrome Dev Tools MCP](https://github.com/AcademicGuard/devtools-mcp-server)
 
 ---
 
 ## Install
 
-### macOS
+### macOS (Homebrew)
 
-**Pre-built binary:**
+```bash
+brew tap brookcs3/tap
+brew install m3u8-mcp
+```
+
+### macOS (Manual)
+
 ```bash
 git clone https://github.com/brookcs3/m3u8-mcp.git
 cd m3u8-mcp
 chmod +x m3u8-mcp
-sudo cp m3u8-mcp /usr/local/bin/  # adds to PATH so you can run it from anywhere
-```
-
-**Build from source:**
-```bash
-git clone https://github.com/brookcs3/m3u8-mcp.git
-cd m3u8-mcp/src-tauri
-cargo build --release
-sudo cp target/release/m3u8-mcp /usr/local/bin/
+sudo cp m3u8-mcp /usr/local/bin/
 ```
 
 ### Windows
@@ -51,13 +49,28 @@ Binary will be at `target\release\m3u8-mcp.exe`
 
 Move it somewhere permanent like `C:\Program Files\m3u8-mcp\m3u8-mcp.exe`
 
+### Build from Source (any platform)
+
+Requires [Rust](https://rustup.rs/).
+
+```bash
+git clone https://github.com/brookcs3/m3u8-mcp.git
+cd m3u8-mcp/src-tauri
+cargo build --release
+```
+
 ---
 
 ## Setup
 
 ### Claude Code
 
-**macOS:**
+**macOS (Homebrew):**
+```bash
+claude mcp add m3u8 --scope user -- m3u8-mcp --stdio
+```
+
+**macOS (Manual):**
 ```bash
 claude mcp add m3u8 --scope user -- /usr/local/bin/m3u8-mcp --stdio
 ```
@@ -83,7 +96,15 @@ open ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 2. Add this inside the `"mcpServers"` section:
 
-**macOS:**
+**macOS (Homebrew):**
+```json
+"m3u8": {
+  "command": "m3u8-mcp",
+  "args": ["--stdio"]
+}
+```
+
+**macOS (Manual):**
 ```json
 "m3u8": {
   "command": "/usr/local/bin/m3u8-mcp",
