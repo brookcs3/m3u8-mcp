@@ -33,6 +33,16 @@ chmod +x m3u8-mcp
 sudo mv m3u8-mcp /usr/local/bin/
 ```
 
+### Build from Source
+
+```bash
+git clone https://github.com/brookcs3/m3u8-mcp.git
+cd m3u8-mcp/src-tauri
+cargo build --release
+```
+
+Binary will be at `target/release/m3u8-mcp`
+
 ---
 
 ## Setup
