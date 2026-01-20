@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+/* Tauri app specific styles - keep minimal for now */
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
