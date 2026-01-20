@@ -45,7 +45,7 @@ sudo cp target/release/m3u8-mcp /usr/local/bin/
 ### Claude Code
 
 ```bash
-claude mcp add m3u8 /usr/local/bin/m3u8-mcp -- --stdio
+claude mcp add m3u8 -- /usr/local/bin/m3u8-mcp --stdio
 ```
 
 ### Claude Desktop
