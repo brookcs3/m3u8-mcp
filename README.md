@@ -24,7 +24,7 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 git clone https://github.com/brookcs3/m3u8-mcp.git
 cd m3u8-mcp
 chmod +x m3u8-mcp
-sudo cp m3u8-mcp /usr/local/bin/
+sudo cp m3u8-mcp /usr/local/bin/  # adds to PATH so you can run it from anywhere
 ```
 
 ### Option 2: Build from Source
@@ -35,7 +35,7 @@ Requires [Rust](https://rustup.rs/).
 git clone https://github.com/brookcs3/m3u8-mcp.git
 cd m3u8-mcp/src-tauri
 cargo build --release
-sudo cp target/release/m3u8-mcp /usr/local/bin/
+sudo cp target/release/m3u8-mcp /usr/local/bin/  # adds to PATH
 ```
 
 ---
