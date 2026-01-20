@@ -11,15 +11,18 @@ MCP server for downloading HLS/m3u8 video streams. Works with Claude Desktop and
 
 ## Requirements
 
-- **FFmpeg** - `brew install ffmpeg`
+- **FFmpeg**
+  - macOS: `brew install ffmpeg`
+  - Windows: `choco install ffmpeg` or download from [ffmpeg.org](https://ffmpeg.org/download.html)
 - **Chrome Dev Tools MCP** (to find m3u8 URLs on web pages) - [Chrome Dev Tools MCP](https://github.com/ChromeDevTools/chrome-devtools-mcp)
 
 ---
 
 ## Install
 
-### Option 1: Pre-built Binary (macOS)
+### macOS
 
+**Pre-built binary:**
 ```bash
 git clone https://github.com/brookcs3/m3u8-mcp.git
 cd m3u8-mcp
@@ -27,16 +30,26 @@ chmod +x m3u8-mcp
 sudo cp m3u8-mcp /usr/local/bin/  # adds to PATH so you can run it from anywhere
 ```
 
-### Option 2: Build from Source
-
-Requires [Rust](https://rustup.rs/).
-
+**Build from source:**
 ```bash
 git clone https://github.com/brookcs3/m3u8-mcp.git
 cd m3u8-mcp/src-tauri
 cargo build --release
-sudo cp target/release/m3u8-mcp /usr/local/bin/  # adds to PATH
+sudo cp target/release/m3u8-mcp /usr/local/bin/
 ```
+
+### Windows
+
+**Build from source** (requires [Rust](https://rustup.rs/)):
+```cmd
+git clone https://github.com/brookcs3/m3u8-mcp.git
+cd m3u8-mcp\src-tauri
+cargo build --release
+```
+
+Binary will be at `target\release\m3u8-mcp.exe`
+
+Move it somewhere permanent like `C:\Program Files\m3u8-mcp\m3u8-mcp.exe`
 
 ---
 
@@ -44,8 +57,14 @@ sudo cp target/release/m3u8-mcp /usr/local/bin/  # adds to PATH
 
 ### Claude Code
 
+**macOS:**
 ```bash
 claude mcp add m3u8 --scope user -- /usr/local/bin/m3u8-mcp --stdio
+```
+
+**Windows:**
+```cmd
+claude mcp add m3u8 --scope user -- "C:\Program Files\m3u8-mcp\m3u8-mcp.exe" --stdio
 ```
 
 ### Claude Desktop
@@ -64,9 +83,18 @@ open ~/Library/Application\ Support/Claude/claude_desktop_config.json
 
 2. Add this inside the `"mcpServers"` section:
 
+**macOS:**
 ```json
 "m3u8": {
   "command": "/usr/local/bin/m3u8-mcp",
+  "args": ["--stdio"]
+}
+```
+
+**Windows:**
+```json
+"m3u8": {
+  "command": "C:\\Program Files\\m3u8-mcp\\m3u8-mcp.exe",
   "args": ["--stdio"]
 }
 ```
